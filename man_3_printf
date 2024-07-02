@@ -1,0 +1,54 @@
+TH PRINTF 3 "June 2024" "Version 1.0" "Custom Printf Function"
+.SH NAME
+_printf \- custom implementation of the printf function
+.SH SYNOPSIS
+.B #include "main.h"
+.br
+.BI "int _printf(const char *format, ...);"
+.SH DESCRIPTION
+.B _printf
+produces output according to a format as described below. This function is similar to the standard
+.BR printf (3)
+function but supports a limited set of conversion specifiers.
+The
+.B format
+argument is a string that contains zero or more directives. Plain characters are printed as is. Conversion specifiers, introduced by a '%' character, cause the function to fetch additional arguments from the variable argument list and convert them into a formatted string.
+.SH CONVERSION SPECIFIERS
+The following conversion specifiers are supported:
+.TP
+.B %c
+Prints a single character.
+.TP
+.B %s
+Prints a string of characters.
+.TP
+.B %d, %i
+Prints a signed decimal integer.
+.TP
+.B %u
+Prints an unsigned decimal integer.
+.TP
+.B %%
+Prints a literal '%' character.
+.SH RETURN VALUE
+The
+.B _printf
+function returns the number of characters printed (excluding the null byte used to end output to strings). If an error occurs, a negative value is returned.
+.SH EXAMPLES
+.nf
+.EX
+#include "main.h"
+int main(void) {
+    _printf("Character: %c\n", 'A');
+    _printf("String: %s\n", "Hello, world!");
+    _printf("Decimal: %d\n", 1024);
+    _printf("Unsigned: %u\n", 1024);
+    _printf("Percent: %%\n");
+    return 0;
+}
+.EE
+.fi
+.SH AUTHOR
+Written by James Hamby, Ari Williams, Natalie Ritchie.
+.SH SEE ALSO
+.BR printf (3)
